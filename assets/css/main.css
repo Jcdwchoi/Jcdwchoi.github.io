@@ -2598,9 +2598,13 @@ input, select, textarea {
 			display: block;
 		}
 
-		.image.left, .image.right {
-			max-width: 40%;
+		.image.left {
+			max-width: 32%;
 		}
+
+        .image.right {
+            max-width: 32%;
+        }
 
 			.image.left img, .image.right img {
 				width: 100%;
@@ -4799,7 +4803,7 @@ input, select, textarea {
     gap: 3rem;
 
     width: 80%;
-    margin: 2rem auto 8rem auto !important;  /* ↓ reduce top space, add bottom buffer */
+    margin: 6rem auto -2rem auto !important;  /* ↓ reduce top space, add bottom buffer */
     padding: 0 !important;
 
     border-top: 0 !important;
@@ -4825,5 +4829,36 @@ input, select, textarea {
 
 #main > .post.gallery-heading {
     padding-bottom: 0 !important;
-    margin-bottom: 0 !important;
+    margin-bottom: 8rem !important;
+}
+
+/* ===== Remove ALL automatic section lines ===== */
+#main > * {
+    border-top: none !important;
+}
+
+/*!* ===== Add line BEFORE 4-image grid ===== *!*/
+/*#main > .posts {*/
+/*    border-top: solid 2px #eeeeee;*/
+/*    padding-top: 3rem;   !* controls space below the line *!*/
+/*}*/
+
+/*!* ===== Add line AFTER 4-image caption ===== *!*/
+/*#main > .gallery-heading {*/
+/*    border-bottom: solid 2px #eeeeee;*/
+/*    padding-bottom: 3rem;   !* controls space above the line *!*/
+/*}*/
+
+/* Reduce space between 4-image grid and its caption */
+.posts + .gallery-heading {
+    margin-top: 1.5rem;   /* ↓ reduce this value */
+}
+
+/* Reduce extra spacing from grid system */
+.posts .row.gtr-uniform {
+    margin-top: -1rem;   /* default is -1.5rem → smaller gap */
+}
+
+.posts .row.gtr-uniform > * {
+    padding-top: 1rem;   /* default 1.5rem → tighter */
 }
